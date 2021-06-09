@@ -1,5 +1,7 @@
 # ansible-raspberry-pi-cluster  
 
+![rpi](https://github.com/aliyacodes/ansible-raspberry-pi-cluster/blob/main/pics/rpicluster.jpg)  
+
 ### Based on https://github.com/aliyacodes/raspberry-pi-homelab  
 <br>
 
