@@ -1,0 +1,7 @@
+---
+- name: Playbook for installing lolcat
+  hosts: all
+  tasks:
+    - name: Install lolcat
+      apt: name=lolcat state=present
+      become: true

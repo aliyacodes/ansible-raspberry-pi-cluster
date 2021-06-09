@@ -1,0 +1,37 @@
+---
+
+#tasks file for sub_pis
+
+- name: Join the node to cluster
+  shell: sh /home/ubuntu/join-command.sh
+
+# - name: Specifying a destination path
+#   ansible.builtin.fetch:
+#     src: ./join_command.sh
+#     dest: /tmp/join_command.sh-{{ inventory_hostname }}
+#     flat: yes
+
+
+
+# - name: Join the node to cluster
+#   ansible.builtin.shell:
+#     cmd: bash join-command.sh
+
+# - name: Generate join command
+#   command: kubeadm token create --print-join-command
+#   register: join_command
+
+# - name: Join sub nodes
+#   command: "{{ join_command }}"
+
+
+
+
+# - hosts: sub_pis
+#   become: yes
+#   tasks:
+#     - name: join cluster
+#       shell: "{{ hostvars['dom_pi'].join_command }} >> node_joined.txt"
+#       args:
+#         chdir: $HOME
+#         creates: node_joined.txt

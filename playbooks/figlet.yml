@@ -1,0 +1,7 @@
+---
+- name: Playbook for installing figlet
+  hosts: all
+  tasks:
+    - name: Install figlet
+      apt: name=figlet state=present
+      become: yes

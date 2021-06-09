@@ -1,0 +1,31 @@
+---
+- name: Reboot
+  hosts: pis
+
+  vars:
+    ansible_connection: ssh
+    ansible_ssh_user: ubuntu
+    ansible_ssh_pass: password123
+
+  tasks:
+
+    - name: Restart the system
+      become: true
+      shell: sleep 2 && shutdown -r now "Ansbile requested system reboot"
+      async: 1
+      poll: 0
+      ignore_errors: true
+
+    - name: Wait for system to boot
+      become: true
+      vars:
+        ansible_connection: local
+      local_action: wait_for
+      args:
+        host: "{{ inventory_hostname }}"
+        port: 22
+        state: started
+        delay: 15
+        timeout: 300
+
+# Use this for fresh install from local machine

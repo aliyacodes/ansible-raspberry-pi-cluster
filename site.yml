@@ -1,0 +1,30 @@
+---
+# This playbook deploys the whole application stack in this site.
+- name: Building Raspberry Pi Cluster
+  hosts: all
+  remote_user: ubuntu
+
+  roles:
+  #  - update
+  #  - create_user
+  #  - apache
+  #  - docker
+  # - kubernetes
+
+- name: Kubernetes Dom Pi
+  hosts: dom_pi
+  remote_user: ubuntu
+
+  roles:
+   - dom_pi
+
+- name: Kubernetes Sub Pis
+  hosts: sub_pis
+  remote_user: ubuntu
+
+  roles:
+   - sub_pis
+
+# 1) setup --> setup/setup.yml
+# 2) initialize --> kube-cluster/initial.yml
+# 3) kube-cluster

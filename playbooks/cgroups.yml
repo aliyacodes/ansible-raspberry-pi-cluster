@@ -1,0 +1,10 @@
+---
+- hosts: all
+  tasks:
+    - name: Enable cgroups
+      shell: sed -i 's/$/ cgroup_enable=cpuset cgroup_enable=memory cgroup_memory=1/' /boot/firmware/cmdline.txt
+      become: true
+
+# MUST REBOOT RIGHT AFTER
+
+# make sure it doesn't write if cgroups already enabled

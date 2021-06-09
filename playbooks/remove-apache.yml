@@ -1,0 +1,21 @@
+---
+- hosts: all
+  tasks:
+    - name: Get the install apache version
+      shell: 'apache2 -v'
+      register: version
+
+    - name: Remove Apache server from Ubuntu server
+      become: true
+      apt:
+        name: apache2
+        state: absent
+        update_cache: true
+
+    - name: Remove unwanted Apache2 packages from the system
+      become: true
+      apt:
+        name: apache2
+        state: absent
+        autoremove: true
+        purge: true

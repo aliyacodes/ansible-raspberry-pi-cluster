@@ -1,0 +1,7 @@
+---
+- name: Playbook for installing cowsay
+  hosts: all
+  tasks:
+    - name: Install cowsay
+      apt: name=cowsay state=present
+      become: yes

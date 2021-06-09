@@ -1,0 +1,14 @@
+---
+# tasks file for create_user
+- name: Create a login user
+  user:
+    name: sup
+    password: "{{ my_password }}"
+    groups:
+      - docker
+      - sudo
+    state: present
+    shell: /bin/bash
+    system: false
+    createhome: true
+    home: /home/sup

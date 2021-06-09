@@ -1,0 +1,7 @@
+---
+- name: Playbook for installing cmatrix
+  hosts: all
+  tasks:
+    - name: Install cmatrix
+      apt: name=cmatrix state=present
+      become: yes
